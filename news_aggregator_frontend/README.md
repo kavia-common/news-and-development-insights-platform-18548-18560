@@ -1,82 +1,53 @@
-# Lightweight React Template for KAVIA
+# News & Development Insights Platform - Frontend
 
-This project provides a minimal React template with a clean, modern UI and minimal dependencies.
+This is a React-based News Aggregator frontend with search, category filters, bookmarking, social sharing, and a placeholder Jira visualization panel. It follows the "Ocean Professional" theme.
 
-## Features
+Features
+- Search news articles by keyword
+- Filter by category
+- Bookmark articles (persisted in localStorage)
+- Social sharing via Web Share API or fallback links
+- Jira visualization panel (placeholder with sample data)
+- Ocean Professional theme with responsive design
+- Mock data fallback when NEWSAPI_API_KEY is not set
+- Graceful error handling and user-friendly messages
 
-- **Lightweight**: No heavy UI frameworks - uses only vanilla CSS and React
-- **Modern UI**: Clean, responsive design with KAVIA brand styling
-- **Fast**: Minimal dependencies for quick loading times
-- **Simple**: Easy to understand and modify
+Getting Started
+1. Install dependencies
+   npm install
 
-## Getting Started
+2. Configure environment
+   - Copy .env.example to .env and set variables as needed
+   - If NEWSAPI_API_KEY is not set, the app will use mock data and show a configuration banner
 
-In the project directory, you can run:
+3. Run the app (port 3000)
+   npm start
+   Open http://localhost:3000
 
-### `npm start`
+Environment Variables
+See .env.example in the project root. Required for live data:
 
-Runs the app in development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- REACT_APP_NEWSAPI_API_KEY: Your NewsAPI key (https://newsapi.org/)
+- Optional Jira placeholders:
+  - REACT_APP_JIRA_BASE_URL: Jira Cloud site (e.g., https://yourcompany.atlassian.net)
+  - REACT_APP_JIRA_EMAIL: Jira account email
+  - REACT_APP_JIRA_API_TOKEN: Jira API token
 
-### `npm test`
+Theme: Ocean Professional
+- Primary: #2563EB
+- Secondary: #F59E0B
+- Error: #EF4444
+- Background: #f9fafb
+- Surface: #ffffff
+- Text: #111827
 
-Launches the test runner in interactive watch mode.
+Notes
+- The app uses fetch() to call https://newsapi.org/v2 with apiKey query param when available.
+- If the API key is absent, the app falls back to mock data.
+- The Jira panel currently displays static sample stats to illustrate UI/UX. It reads optional env vars safely.
 
-### `npm run build`
+Accessibility
+- Keyboard focusable controls, proper aria attributes on interactive elements and modals.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-## Customization
-
-### Colors
-
-The main brand colors are defined as CSS variables in `src/App.css`:
-
-```css
-:root {
-  --kavia-orange: #E87A41;
-  --kavia-dark: #1A1A1A;
-  --text-color: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --border-color: rgba(255, 255, 255, 0.1);
-}
-```
-
-### Components
-
-This template uses pure HTML/CSS components instead of a UI framework. You can find component styles in `src/App.css`. 
-
-Common components include:
-- Buttons (`.btn`, `.btn-large`)
-- Container (`.container`)
-- Navigation (`.navbar`)
-- Typography (`.title`, `.subtitle`, `.description`)
-
-## Learn More
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+License
+MIT
